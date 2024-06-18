@@ -25,6 +25,7 @@ async def hello(Authorize:AuthJWT=Depends()):
 
 @auth_router.post("/signup",status_code=status.HTTP_201_CREATED)
 async def signup(user:SignUpModel):
+    print("Hi")
     db_email=session.query(User).filter(User.email==user.email).first()
 
     if db_email is not None:

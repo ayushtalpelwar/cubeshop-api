@@ -1,6 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base,sessionmaker
-
-engine=create_engine('postgresql://postgres:Ayush%4004@localhost/cubesite',echo=True)
+from dotenv import load_dotenv
+import os
+load_dotenv() 
+engine=create_engine(os.getenv("DB_URL"),echo=True)
 Base=declarative_base()
 Session=sessionmaker()
